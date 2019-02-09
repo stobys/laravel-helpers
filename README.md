@@ -3,8 +3,9 @@
 
 ## Installation
 
-TBD
-
+```bash
+composer require stobys/laravel-helpers
+```
 
 ## Helpers
 
@@ -13,4 +14,11 @@ TBD
 Shortcut for: `new Carbon` or `Carbon::parse()`
 ``` php
 carbon('One year ago');
+```
+
+**user**
+
+Shortcut for: `auth()->user()`
+```php
+user()->posts()->create([...]);
 ```
