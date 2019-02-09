@@ -1,0 +1,39 @@
+{
+    "name": "stobys/laravel-helpers",
+    "description": "Collection of helper function for Laravel",
+    "keywords": [
+        "stobys",
+        "laravel-helpers"
+    ],
+    "homepage": "https://github.com/stobys/laravel-helpers",
+    "license": "MIT",
+    "authors": [
+        {
+            "name"  : "SylveK",
+            "email" : "s.tobys@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "illuminate/support": "5.7.*",
+        "phpunit/phpunit": "^7.0",
+        "mockery/mockery": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "SylveK\\LaravelHelpers\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SylveK\\LaravelHelpers\\LaravelHelpersServiceProvider"
+            ]
+        }
+    }
+}
