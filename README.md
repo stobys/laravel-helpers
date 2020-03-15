@@ -16,9 +16,18 @@ Shortcut for: `new Carbon` or `Carbon::parse()`
 carbon('One year ago');
 ```
 
+
 **user**
 
 Shortcut for: `auth()->user()`
 ```php
 user()->posts()->create([...]);
+```
+
+
+** faker **
+
+Shortcut for: `Faker\Factory::create($locale)`
+``` php
+faker('pl_PL') -> realText(200);
 ```
