@@ -8,8 +8,10 @@ class LaravelHelpersServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        foreach (scandir(__DIR__.DIRECTORY_SEPARATOR.'LaravelHelpers') as $helperFile) {
-            $path = sprintf('%s%s%s%s%s', __DIR__, DIRECTORY_SEPARATOR, 'helpers', DIRECTORY_SEPARATOR, $helperFile);
+        $basedir = __DIR__.DIRECTORY_SEPARATOR.'helpers';
+
+        foreach (scandir($basedir) as $helperFile) {
+            $path = sprintf('%s%s%s', $basedir, DIRECTORY_SEPARATOR, $helperFile);
 
             if (is_file($path)) {
                 require_once($path);
