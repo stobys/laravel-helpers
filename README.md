@@ -25,7 +25,7 @@ user()->posts()->create([...]);
 ```
 
 
-** faker **
+**faker**
 
 Shortcut for: `Faker\Factory::create($locale)`
 ``` php
