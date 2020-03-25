@@ -13,22 +13,27 @@ function controller($name = null, $return = null)
         return null;
     }
 
-    $actionName = strtolower($route -> getActionName());
-    if ($actionName == 'closure') {
-        $actionName = 'closure@closure';
-    }
+    $names = array_wrap($name);
+    $result = false;
 
-    list($controller, $action) = explode('@', $actionName);
-    $controller = str_replace('controller', '', basename($controller));
+    foreach ($names as $name) {
+        $actionName = strtolower($route -> getActionName());
+        if ($actionName == 'closure') {
+            $actionName = 'closure@closure';
+        }
 
-    $name = strtolower($name);
+        list($controller, $action) = explode('@', $actionName);
+        $controller = str_replace('controller', '', basename($controller));
 
-    if (strpos($name, '@') !== false) {
-        list($ifc, $ifa) = explode('@', $name);
+        $name = strtolower($name);
 
-        $result = ($ifc == $controller) && ($ifa == $action);
-    } else {
-        $result = ($name == $controller);
+        if (strpos($name, '@') !== false) {
+            list($ifc, $ifa) = explode('@', $name);
+
+            $result = $result || ($ifc == $controller) && ($ifa == $action);
+        } else {
+            $result = $result || ($name == $controller);
+        }
     }
 
     if ($result && !is_null($return)) {
